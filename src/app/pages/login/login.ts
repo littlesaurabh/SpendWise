@@ -26,6 +26,7 @@ export class LoginPage {
     this.submitted = true;
 
     if (form.valid) {
+      
       this.userData.login(this.login.username);
       this.router.navigateByUrl('/app/tabs/schedule');
     }
