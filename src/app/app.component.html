@@ -46,6 +46,15 @@
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
+          
+          <ion-menu-toggle autoHide="false">
+            <ion-item routerLink="/analytics" routerLinkActive="active" routerDirection="root" detail="false">
+              <ion-icon slot="start" name="help"></ion-icon>
+              <ion-label>
+                Analytics
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
 
           <ion-menu-toggle autoHide="false">
             <ion-item button (click)="logout()" detail="false">

@@ -5,6 +5,7 @@ import { AlertController, IonList, LoadingController, ModalController, ToastCont
 import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 import { ConferenceData } from '../../providers/conference-data';
 import { UserData } from '../../providers/user-data';
+import { Service1Service } from './service1.service';
 
 @Component({
   selector: 'page-schedule',
@@ -22,8 +23,10 @@ export class SchedulePage implements OnInit {
   excludeTracks: any = [];
   shownSessions: any = [];
   groups: any = [];
+  tran:any;
   confDate: string;
-
+  errorMessage:string;
+  load:boolean=false;
   constructor(
     public alertCtrl: AlertController,
     public confData: ConferenceData,
@@ -32,13 +35,20 @@ export class SchedulePage implements OnInit {
     public router: Router,
     public toastCtrl: ToastController,
     public user: UserData,
-    public config: Config
+    public config: Config,
+    private service:Service1Service
+    
   ) { }
 
   ngOnInit() {
     this.updateSchedule();
-
+    this.tran=this.service.getTran().subscribe(
+      success => this.tran = success ,
+      error => this.errorMessage = error);
+      
     this.ios = this.config.get('mode') === 'ios';
+  //  this.tran= JSON.parse(this.tran);
+  // console.log(this.tran)
   }
 
   updateSchedule() {
@@ -132,4 +142,5 @@ export class SchedulePage implements OnInit {
     await loading.onWillDismiss();
     fab.close();
   }
+ 
 }

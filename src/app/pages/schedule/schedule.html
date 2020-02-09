@@ -48,19 +48,19 @@
         </ion-label>
       </ion-item-divider> -->
 
-      <ion-item-sliding *ngFor="let session of group.sessions" #slidingItem [attr.track]="session.tracks[0] | lowercase"
+      <ion-item-sliding *ngFor="let session of group.sessions; let i=index" #slidingItem [attr.track]="session.tracks[0] | lowercase"
         [hidden]="session.hide">
         <ion-item routerLink="/app/tabs/schedule/session/{{session.id}}">
           <ion-label>
             <div >
               <div class="mt-2">
-                <h1 style="display: inline; ">{{session.name}}</h1>
+                <h1 style="display: inline; ">{{tran[i].payee}}</h1>
               </div>
 
 
               <div style="text-align: right;" >            
-                  <ion-badge  *ngIf="session.balance>0" color="success">{{session.balance |currency:'INR'}}</ion-badge >
-                  <ion-badge *ngIf="session.balance<0" color="warning">{{session.balance|currency:'INR'}}</ion-badge>
+               <ion-badge  *ngIf="tran[i].amount >0" color="success">{{tran[i].amount |currency:'INR'}}</ion-badge >
+                  <ion-badge *ngIf="tran[i].amount <0" color="warning">{{tran[i].amount|currency:'INR'}}</ion-badge>
                   <!-- <ion-badge color="tertiary">33</ion-badge> -->
                   <!-- <h1 *ngIf="session.balance<0" class="text-danger">₹{{-session.balance}}</h1> -->
               
@@ -89,12 +89,13 @@
     No Sessions Found
   </ion-list-header>
 
-  <ion-fab slot="fixed" vertical="bottom" horizontal="end" #fab>
-    <ion-fab-button>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" #fab >
+    <ion-fab-button routerLink="/tran">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
-    <ion-fab-list side="top">
-      <ion-fab-button color="vimeo" (click)="openSocial('Vimeo', fab)">
+
+    <!-- <ion-fab-list side="top"> -->
+      <!-- <ion-fab-button color="vimeo" (click)="openSocial('Vimeo', fab)">
         <ion-icon name="logo-vimeo"></ion-icon>
       </ion-fab-button>
       <ion-fab-button color="google" (click)="openSocial('Google+', fab)">
@@ -105,7 +106,8 @@
       </ion-fab-button>
       <ion-fab-button color="facebook" (click)="openSocial('Facebook', fab)">
         <ion-icon name="logo-facebook"></ion-icon>
-      </ion-fab-button>
-    </ion-fab-list>
+      </ion-fab-button> -->
+    <!-- </ion-fab-list> -->
+    
   </ion-fab>
 </ion-content>

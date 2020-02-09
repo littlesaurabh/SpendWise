@@ -32,6 +32,14 @@ const routes: Routes = [
     path: 'tutorial',
     loadChildren: () => import('./pages/tutorial/tutorial.module').then(m => m.TutorialModule),
     canLoad: [CheckTutorial]
+  },
+  {
+    path: 'analytics',
+    loadChildren: () => import('./pages/analytics/analytics.module').then( m => m.AnalyticsPageModule)
+  },
+  {
+    path: 'tran',
+    loadChildren: () => import('./pages/tran/tran.module').then( m => m.TranPageModule)
   }
 ];
 
