@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -9,4 +9,39 @@
 
 <ion-content>
   <div #mapCanvas class="map-canvas"></div>
+</ion-content> -->
+<ion-header>
+  <ion-toolbar>
+
+    <ion-title>Transactions</ion-title>
+    <ion-progress-bar type="indeterminate"></ion-progress-bar>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+  <ion-list *ngFor="let item of items">
+    <ion-item-sliding>
+      <ion-item-options side="start">
+        <ion-item-option (click)="favorite(item)">Favorite</ion-item-option>
+        <ion-item-option color="danger" (click)="share(item)">Share</ion-item-option>
+      </ion-item-options>
+
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="https://i.ya-webdesign.com/images/cash-in-hand-png-7.png">
+        </ion-avatar>
+        <ion-label>Saurabh</ion-label>
+        <p side="end">₹{{item}}</p>
+
+
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option (click)="unread(item)">Unread</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+    
+
+
+  </ion-list>
 </ion-content>

@@ -11,8 +11,11 @@ import { darkStyle } from './map-dark-style';
   styleUrls: ['./map.scss']
 })
 export class MapPage implements AfterViewInit {
+  
   @ViewChild('mapCanvas', { static: true }) mapElement: ElementRef;
 
+
+  items=[145,253,3645,4435,536,5673,999,1000,2345,4565,768]
   constructor(
     @Inject(DOCUMENT) private doc: Document,
     public confData: ConferenceData,
@@ -103,5 +106,6 @@ function getGoogleMaps(apiKey: string): Promise<any> {
       }
     };
   });
+ 
 }
 

@@ -15,4 +15,5 @@ import { MapPageRoutingModule } from './map-routing.module';
     MapPage,
   ]
 })
+
 export class MapModule { }

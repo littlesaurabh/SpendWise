@@ -1,37 +1,147 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>tran</ion-title>
+
+
+    <!-- Searchbar with value -->
+
+
+    <ion-title>Transaction</ion-title>
+    <!-- <ion-buttons slot="secondary"> -->
+    <ion-button slot="secondary" fill="clear" size="large">
+      <ion-icon name="save"></ion-icon>
+    </ion-button>
+    <!-- <ion-button slot="secondary" ><ion-icon name="save"></ion-icon></ion-button> -->
+    <!-- </ion-buttons> -->
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- <form class="example-form">
-    <mat-form-field class="example-full-width">
-      <label>Favorite food</label>
-      <input matInput placeholder="Ex. Pizza" value="Sushi">
-    </mat-form-field>
-    </form> -->
-    <!-- <form  >
-      <div class="form-group">
-        <label  for="email">Email address:</label>
-        <input matInput type="email" id="email">
-      </div>
-      <div class="form-group">
-        <label  for="pwd">Password:</label>
-        <input type="password" class="form-control" id="pwd">
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox"> Remember me</label>
-      </div>
-     <button class="btn btn-danger">Button</button>
-      <button mat-button color="danger">Warn</button>
-    </form> -->
+  <ion-list>
+    <ion-item>
+      With you and :
+      &nbsp; <ion-input placeholder="Enter Name, Email or Phone no"></ion-input>
+    </ion-item>
+
+   
+
 
     <ion-item>
-      <ion-label position="stacked" color="primary">Username</ion-label>
-      <ion-input name="username" type="text" required>
-      </ion-input>
-      <ion-button expand="full">Full Button</ion-button>
-<ion-button expand="block">Block Button</ion-button>
+    
+      <ion-label position="floating" fixed>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;  Enter Description</ion-label>
+      
+      <ion-input type="text"><ion-icon size="large" name="clipboard" ></ion-icon></ion-input>
     </ion-item>
+      
+
+<ion-item>
+    
+  <ion-label position="floating" fixed>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; Amount</ion-label>
+  
+  <ion-input type="text"><ion-icon size="large" name="cash" ></ion-icon></ion-input>
+</ion-item>
+
+<ion-item>
+    
+  <ion-label position="floating" fixed>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; Date</ion-label>
+  
+  <ion-input type="date" placeholder="Date" value=""><ion-icon size="large" name="calendar" ></ion-icon></ion-input>
+</ion-item>
+
+
+
+
+
+
+
+    
+    <ion-list>
+      <ion-list-header>Category</ion-list-header>
+
+      <ion-item>
+        <ion-label>Split Type</ion-label>
+        <ion-select value="brown" okText="Okay" cancelText="Cancel">
+          <ion-select-option value="brown">Equally</ion-select-option>
+          <ion-select-option value="blonde">Unequally</ion-select-option>
+          <ion-select-option value="black">Paid by him</ion-select-option>
+          <ion-select-option value="red">Paid by you</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Portion</ion-label>
+        <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Select One">
+          <ion-select-option value="brown">Brown</ion-select-option>
+          <ion-select-option value="blonde">Blonde</ion-select-option>
+          <ion-select-option value="black">Black</ion-select-option>
+          <ion-select-option value="red">Red</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- <ion-item>
+        <ion-label>Action Sheet</ion-label>
+        <ion-select [interfaceOptions]="customActionSheetOptions" interface="action-sheet" placeholder="Select One">
+          <ion-select-option value="red">Red</ion-select-option>
+          <ion-select-option value="purple">Purple</ion-select-option>
+          <ion-select-option value="yellow">Yellow</ion-select-option>
+          <ion-select-option value="orange">Orange</ion-select-option>
+          <ion-select-option value="green">Green</ion-select-option>
+        </ion-select>
+      </ion-item> -->
+      <ion-card>
+        <ion-card-header>
+          Category
+        </ion-card-header>
+
+        <ion-list>
+          <ion-button fill="clear">
+            <ion-icon name="cart" item-start></ion-icon>
+            Shopping
+          </ion-button>
+          <ion-button fill="clear">
+            <ion-icon name="cart" item-start></ion-icon>
+            Food
+          </ion-button>
+
+          <ion-button fill="clear">
+            <ion-icon name="medical" item-start></ion-icon>
+            Health
+          </ion-button>
+
+          <ion-button fill="clear">
+            <ion-icon name="cafe" item-start></ion-icon>
+            Cafe
+          </ion-button>
+          <ion-button fill="clear">
+            <ion-icon name="paw" item-start></ion-icon>
+            Pet Care
+          </ion-button>
+
+          <ion-button fill="clear">
+            <ion-icon name="beer" item-start></ion-icon>
+            Beverages
+          </ion-button>
+
+          <ion-button fill="clear">
+            <ion-icon name="call" item-start></ion-icon>
+            Phone Bills
+          </ion-button>
+          <ion-button fill="clear">
+            <ion-icon name="planet" item-start></ion-icon>
+            Transfer
+          </ion-button>
+          <ion-button fill="clear">
+            <ion-icon name="planet" item-start></ion-icon>
+            Travel
+          </ion-button>
+          <ion-button fill="clear">
+            <ion-icon name="bus" item-start></ion-icon>
+            Transport
+          </ion-button>
+
+        </ion-list>
+      </ion-card>
+
+    </ion-list>
+  </ion-list>
+
 </ion-content>
