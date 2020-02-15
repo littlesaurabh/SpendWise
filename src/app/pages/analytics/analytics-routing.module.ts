@@ -1,13 +1,24 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+// import { MonthComponent } from './month/month'
+
 
 import { AnalyticsPage } from './analytics.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: AnalyticsPage
+    component: AnalyticsPage,
+  },
+  {
+    path: 'month',
+    loadChildren: () => import('./month/month.module').then( m => m.MonthPageModule)
+  },
+  {
+    path: 'category',
+    loadChildren: () => import('./category/category.module').then( m => m.CategoryPageModule)
   }
+
 ];
 
 @NgModule({
