@@ -2,39 +2,48 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AnalyticsService } from '../analytics.service';
 import { Chart } from 'chart.js';
 @Component({
-  selector: 'month',
-  templateUrl: './month.page.html',
-  styleUrls: ['./month.page.css'],
+	selector: 'month',
+	templateUrl: './month.page.html',
+	styleUrls: ['./month.page.css']
 })
 export class MonthPage implements OnInit {
-
-
 	yearChartLoaded: Boolean = true;
-monthlySpend: any;
-bars: any;
+	monthlySpend: any;
+	bars: any;
 	@ViewChild('barChart', { static: false }) barChart;
-  constructor(private analyticsService: AnalyticsService) { }
+	constructor(private analyticsService: AnalyticsService) {}
 
-  ngOnInit() {
-  			this.monthlySpend = this.analyticsService.getMonthlySpend();
-
-  }
-  	onYearChange() {
+	ngOnInit() {
+		this.monthlySpend = this.analyticsService.getMonthlySpend();
+	}
+	onYearChange() {
 		this.yearChartLoaded = false;
-		setTimeout(()=>{
+		setTimeout(() => {
 			this.yearChartLoaded = true;
-			this.monthlySpend = [5, 3.8, 4, 2, 4, 9, 12, 11, 6, 7.36, 2.5, 10.1];
-			this.createBarChart()
-		}, 2000)
-
+			this.monthlySpend = [
+				5,
+				3.8,
+				4,
+				2,
+				4,
+				9,
+				12,
+				11,
+				6,
+				7.36,
+				2.5,
+				10.1
+			];
+			this.createBarChart();
+		}, 2000);
 	}
 
-  ionViewDidEnter() {
-		console.log("ivde")
+	ionViewDidEnter() {
+		console.log('ivde');
 		this.createBarChart();
-		}
+	}
 
-		createBarChart() {
+	createBarChart() {
 		console.log(this.barChart);
 		this.bars = new Chart(this.barChart.nativeElement, {
 			type: 'line',
@@ -76,5 +85,4 @@ bars: any;
 			}
 		});
 	}
-
 }

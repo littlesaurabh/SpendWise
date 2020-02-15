@@ -1,15 +1,13 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
 import { AnalyticsService } from '../analytics.service';
 @Component({
-  selector: 'category',
-  templateUrl: './category.page.html',
-  styleUrls: ['./category.page.css'],
+	selector: 'category',
+	templateUrl: './category.page.html',
+	styleUrls: ['./category.page.css']
 })
 export class CategoryPage implements OnInit {
 	@ViewChild('pieChart', { static: false }) pieChart;
-
-
 
 	monthChangedCat: Boolean = false;
 	yearChangedCat: Boolean = false;
@@ -18,13 +16,13 @@ export class CategoryPage implements OnInit {
 	categorySpend: any;
 	colorArray: any = ['Red', 'Green', 'Yellow', 'Pink', 'Violet', 'Orange'];
 
-  constructor(private analyticsService: AnalyticsService) { }
+	constructor(private analyticsService: AnalyticsService) {}
 
-  ionViewDidEnter() {
+	ionViewDidEnter() {
 		this.createPieChart();
 	}
 
-		createPieChart() {
+	createPieChart() {
 		this.bars = new Chart(this.pieChart.nativeElement, {
 			type: 'pie',
 			data: {
@@ -60,33 +58,30 @@ export class CategoryPage implements OnInit {
 		});
 	}
 
-	
-
-onMonthChangeCat() {
-	this.monthChangedCat = true;
-	this.checkCatChart();
-}
-
-onYearChangeCat() {
-	this.yearChangedCat = true;
-	this.checkCatChart();
-}
-
-checkCatChart() {
-	console.log("Cat changed")
-	if(this.monthChangedCat && this.yearChangedCat) {
-		this.catChartLoaded = false;
-		console.log("Cat changed 1")
-		setTimeout(()=>{
-			this.catChartLoaded = true;
-			this.categorySpend = [5, 3.8, 4, 2, 4, 9];
-			this.createPieChart()
-		}, 2000)
+	onMonthChangeCat() {
+		this.monthChangedCat = true;
+		this.checkCatChart();
 	}
-}
 
-  ngOnInit() {
-  	this.categorySpend = this.analyticsService.getCategorySpend();
-  }
+	onYearChangeCat() {
+		this.yearChangedCat = true;
+		this.checkCatChart();
+	}
 
+	checkCatChart() {
+		console.log('Cat changed');
+		if (this.monthChangedCat && this.yearChangedCat) {
+			this.catChartLoaded = false;
+			console.log('Cat changed 1');
+			setTimeout(() => {
+				this.catChartLoaded = true;
+				this.categorySpend = [5, 3.8, 4, 2, 4, 9];
+				this.createPieChart();
+			}, 2000);
+		}
+	}
+
+	ngOnInit() {
+		this.categorySpend = this.analyticsService.getCategorySpend();
+	}
 }
