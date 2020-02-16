@@ -15,7 +15,11 @@ const routes: Routes = [
 	{
 		path: 'month',
 		redirectTo: '/analytics/month'
-	}
+	},
+	{
+    path:'compare',
+    redirectTo: '/analytics/compare'
+  }
 ];
 
 @NgModule({

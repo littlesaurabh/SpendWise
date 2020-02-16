@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { MonthPage } from './month.page';
+import { ComparePage } from './compare.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: MonthPage
+    component: ComparePage
   },
   {
-  	path: 'month',
+  	path: 'compare',
 	redirectTo: ''
   },
   {
@@ -18,8 +18,8 @@ const routes: Routes = [
   }
   ,
   {
-    path:'compare',
-    redirectTo: '/analytics/compare'
+    path:'month',
+    redirectTo: '/analytics/month'
   }
 ];
 
@@ -27,4 +27,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MonthPageRoutingModule {}
+export class ComparePageRoutingModule {}

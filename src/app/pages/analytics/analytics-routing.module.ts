@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path: 'category',
     loadChildren: () => import('./category/category.module').then( m => m.CategoryPageModule)
+  },
+  {
+    path: 'compare',
+    loadChildren: () => import('./compare/compare.module').then( m => m.ComparePageModule)
   }
 
 ];
