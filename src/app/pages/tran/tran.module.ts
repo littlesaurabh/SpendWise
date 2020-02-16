@@ -17,4 +17,6 @@ import { TranPage } from './tran.page';
   ],
   declarations: [TranPage]
 })
-export class TranPageModule {}
+export class TranPageModule {
+  
+}

@@ -72,13 +72,29 @@
 
       <ion-item>
         <ion-label>Portion</ion-label>
-        <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Select One">
-          <ion-select-option value="brown">Brown</ion-select-option>
+        <!-- <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Select One"> -->
+          <!-- <ion-select-option value="brown">Brown</ion-select-option>
           <ion-select-option value="blonde">Blonde</ion-select-option>
           <ion-select-option value="black">Black</ion-select-option>
-          <ion-select-option value="red">Red</ion-select-option>
-        </ion-select>
+          <ion-select-option value="red">Red</ion-select-option> -->
+          
+        <!-- </ion-select> -->
+        
+        <ion-button text  fill="outline" block (click)="presentAlert()">
+          Select Portion
+        </ion-button>
+        
+        <ion-button text  fill="outline" block (click)="presentPopover()">
+          POPOVER
+        </ion-button>
+        
       </ion-item>
+      <!-- <ion-content padding>
+        <h2>Prompt Alert</h2>
+        <ion-button block (click)="presentAlertConfirm()">
+          Show Prompt Alert
+        </ion-button>
+      </ion-content> -->
 
       <!-- <ion-item>
         <ion-label>Action Sheet</ion-label>

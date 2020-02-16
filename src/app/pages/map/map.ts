@@ -16,6 +16,7 @@ export class MapPage implements AfterViewInit {
 
 
   items=[145,253,3645,4435,536,5673,999,1000,2345,4565,768]
+  
   constructor(
     @Inject(DOCUMENT) private doc: Document,
     public confData: ConferenceData,
