@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AnalyticsService } from '../analytics.service';
 import { Chart } from 'chart.js';
+import * as jsPDF from 'jspdf'
 @Component({
 	selector: 'month',
 	templateUrl: './month.page.html',
@@ -16,6 +17,43 @@ export class MonthPage implements OnInit {
 	ngOnInit() {
 		this.monthlySpend = this.analyticsService.getMonthlySpend();
 	}
+	@ViewChild('content', {static: false}) content: ElementRef;
+  
+  public downloadPdf() {
+    let doc = new jsPDF();
+
+    let dataUrl = this.barChart.nativeElement.toDataURL();
+    // console.log(dataUrl)
+    let specialElementHandlers = {
+      '#editor': function(element, renderer) {
+        return true;
+      }
+    }
+    var width = doc.internal.pageSize.getWidth();
+	var height = doc.internal.pageSize.getHeight();
+
+    let content = this.content.nativeElement;
+
+    // doc.canvas
+    // doc.addHTML(this.content.nativeElement.innerHTML)
+    // doc.addImage(dataUrl, 'JPEG', 0, 0);
+    doc.addImage(dataUrl, 'JPEG', 15, 30,  width/2.5, 80,"abc","NONE")
+    doc.fromHTML("<h2 style='color:red'><u><i>Yearly Report for 2019</i><u></h2>", 15, 15, {
+      'width': 190,
+      'elementHandlers': specialElementHandlers
+    });
+
+    doc.addImage(dataUrl, 'JPEG', width/2.5 + 40, 30,  width/2.5, 80,"abc","SLOW")
+    doc.fromHTML("<h2 style='color:blue'><u><i>Yearly Report for 2019</i><u></h2>", width/2.5 + 40, 15, {
+      'width': 190,
+      'elementHandlers': specialElementHandlers
+    });
+
+    // console.log(content.innerHTML)
+
+    doc.save("test.pdf");
+
+  }
 	onYearChange() {
 		this.yearChartLoaded = false;
 		setTimeout(() => {

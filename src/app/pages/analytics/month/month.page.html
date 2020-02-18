@@ -7,7 +7,7 @@
 	</ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content >
 	<ion-tabs>
 		<ion-tab-bar slot="top">
 			<ion-tab-button tab="month">
@@ -27,7 +27,7 @@
 		</ion-tab-bar>
 	</ion-tabs>
 
-	<ion-card class="welcome-card" style="position: relative; top: 60px ">
+	<ion-card  id="content"  class="welcome-card" style="position: relative; top: 60px ">
 		<ion-card-header>
 			<ion-card-title>Monthly Expenditure</ion-card-title>
 			<ion-grid>
@@ -53,13 +53,17 @@
 				</ion-row>
 			</ion-grid>
 		</ion-card-header>
-		<ion-card-content>
+		<ion-card-content >
 			<ion-spinner *ngIf="!yearChartLoaded" name="crescent">
 			</ion-spinner>
 
-			<canvas #barChart height="250"></canvas>
+			<div #content>
+				<canvas #barChart height="250"></canvas>
+			</div>
 		</ion-card-content>
 	</ion-card>
+		<ion-button (click)="downloadPdf()">Download</ion-button>
+
 </ion-content>
 
 <ion-backdrop *ngIf="!yearChartLoaded"></ion-backdrop>
