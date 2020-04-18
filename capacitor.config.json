@@ -1,6 +1,6 @@
 {
   "appId": "com.spendwise.ui",
-  "appName": "Spendwise",
+  "appName": "CodeHub",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
